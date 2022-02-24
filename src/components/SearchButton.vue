@@ -1,5 +1,5 @@
 <template>
-  <button class="text-gray-50 bg-indigo-500 hover:bg-indigo-600 rounded-xl p-3 transition">
+  <button @click="handleClick" class="text-gray-50 bg-indigo-500 hover:bg-indigo-600 rounded-xl p-3 transition">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
         stroke-linecap="round"
@@ -15,8 +15,13 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  setup() {
-    return {};
+  setup(props, { emit }) {
+    const handleClick = function() {
+      emit('button-enter')
+    }
+    return {
+      handleClick
+    };
   },
 });
 </script>
