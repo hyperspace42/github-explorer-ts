@@ -16,11 +16,11 @@ export default defineComponent({
   setup(props, { emit }) {
     const inputText = ref('');
 
-    const handleInput = function() {
+    const handleInput = function(): void {
       emit('input-username', inputText.value)
     }
 
-    const handleEnter = function() {
+    const handleEnter = function(): void {
       emit('input-enter')
     }
 

@@ -67,15 +67,22 @@ export default defineComponent({
     const user = ref();
     const repos = ref();
 
-    const getInputUsername = function (text: string) {
+    const getInputUsername = function (text: string): void {
       inputText.value = text;
+    };
+
+    const getUser = async function (): Promise<void> {
+      user.value = await getUserInfo<string>(inputText.value);
+    };
+    const getRepos = async function (): Promise<void> {
+      repos.value = await getUserRepos<string>(inputText.value);
     };
 
     const getGithubProfile = async function () {
       if (!inputText.value.trim()) return;
 
-      user.value = await getUserInfo(inputText.value);
-      repos.value = await getUserRepos(inputText.value);
+      getUser();
+      getRepos();
     };
 
     return {

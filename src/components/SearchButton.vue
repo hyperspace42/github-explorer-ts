@@ -16,7 +16,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   setup(props, { emit }) {
-    const handleClick = function() {
+    const handleClick = function(): void {
       emit('button-enter')
     }
     return {
